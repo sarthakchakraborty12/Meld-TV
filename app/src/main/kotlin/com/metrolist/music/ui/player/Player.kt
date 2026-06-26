@@ -172,6 +172,7 @@ import com.metrolist.music.ui.theme.PlayerColorExtractor
 import com.metrolist.music.ui.theme.PlayerSliderColors
 import com.metrolist.music.ui.utils.ShowMediaInfo
 import com.metrolist.music.ui.utils.ShowOffsetDialog
+import com.metrolist.music.ui.utils.tvFocusBorder
 import com.metrolist.music.utils.dataStore
 import com.metrolist.music.utils.makeTimeString
 import com.metrolist.music.utils.rememberEnumPreference
@@ -1549,7 +1550,8 @@ fun BottomSheetPlayer(
                                 modifier =
                                     Modifier
                                         .height(68.dp)
-                                        .weight(backButtonWeight),
+                                        .weight(backButtonWeight)
+                                        .tvFocusBorder(shape = RoundedCornerShape(50)),
                             ) {
                                 Icon(
                                     painter = painterResource(R.drawable.skip_previous),
@@ -1589,7 +1591,8 @@ fun BottomSheetPlayer(
                                 modifier =
                                     Modifier
                                         .height(68.dp)
-                                        .weight(playPauseWeight),
+                                        .weight(playPauseWeight)
+                                        .tvFocusBorder(shape = RoundedCornerShape(50)),
                             ) {
                                 Row(
                                     verticalAlignment = Alignment.CenterVertically,
@@ -1640,7 +1643,8 @@ fun BottomSheetPlayer(
                                 modifier =
                                     Modifier
                                         .height(68.dp)
-                                        .weight(nextButtonWeight),
+                                        .weight(nextButtonWeight)
+                                        .tvFocusBorder(shape = RoundedCornerShape(50)),
                             ) {
                                 Icon(
                                     painter = painterResource(R.drawable.skip_next),
@@ -1700,6 +1704,7 @@ fun BottomSheetPlayer(
                                     Modifier
                                         .size(72.dp)
                                         .clip(RoundedCornerShape(playPauseRoundness))
+                                        .tvFocusBorder(shape = RoundedCornerShape(playPauseRoundness))
                                         .background(textButtonColor)
                                         .clickable {
                                             if (isListenTogetherGuest) {

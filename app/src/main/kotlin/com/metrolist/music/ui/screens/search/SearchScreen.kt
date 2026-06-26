@@ -48,6 +48,7 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.unit.sp
+import androidx.compose.ui.unit.dp
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleEventObserver
 import androidx.lifecycle.SavedStateHandle
@@ -70,6 +71,8 @@ import com.metrolist.music.utils.rememberPreference
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import java.net.URLEncoder
+
+import com.metrolist.music.ui.utils.tvFocusBorder
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -190,7 +193,9 @@ fun SearchScreen(
                             modifier =
                                 Modifier
                                     .weight(1f)
-                                    .focusRequester(focusRequester),
+                                    .focusRequester(focusRequester)
+                                    .tvFocusBorder()
+                                    .padding(8.dp),
                             textStyle =
                                 TextStyle(
                                     color = MaterialTheme.colorScheme.onSurface,

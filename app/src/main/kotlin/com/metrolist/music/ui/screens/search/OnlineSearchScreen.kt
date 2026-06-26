@@ -42,7 +42,10 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
+import androidx.compose.ui.draw.clip
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.ui.graphics.Color
+import com.metrolist.music.ui.utils.tvFocusBorder
 import androidx.compose.ui.hapticfeedback.HapticFeedbackType
 import androidx.compose.ui.platform.LocalHapticFeedback
 import androidx.compose.ui.platform.LocalSoftwareKeyboardController
@@ -649,6 +652,8 @@ fun SuggestionItem(
                 .fillMaxWidth()
                 .height(SuggestionItemHeight)
                 .background(if (pureBlack) Color.Black else MaterialTheme.colorScheme.surface)
+                .clip(RoundedCornerShape(8.dp))
+                .tvFocusBorder(shape = RoundedCornerShape(8.dp))
                 .clickable(onClick = onClick)
                 .windowInsetsPadding(WindowInsets.systemBars.only(WindowInsetsSides.Horizontal)),
     ) {

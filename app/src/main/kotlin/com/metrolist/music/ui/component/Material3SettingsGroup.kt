@@ -31,8 +31,10 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.unit.dp
+import com.metrolist.music.ui.utils.tvFocusBorder
 
 /**
  * A Material 3 Expressive style settings group component
@@ -86,7 +88,7 @@ fun Material3SettingsGroup(
                     ),
                     elevation = CardDefaults.cardElevation(defaultElevation = 0.dp)
                 ) {
-                    Material3SettingsItemRow(item = item)
+                    Material3SettingsItemRow(item = item, shape = shape)
                 }
             }
         }
@@ -98,11 +100,14 @@ fun Material3SettingsGroup(
  */
 @Composable
 private fun Material3SettingsItemRow(
-    item: Material3SettingsItem
+    item: Material3SettingsItem,
+    shape: Shape
 ) {
     Row(
         modifier = Modifier
             .fillMaxWidth()
+            .clip(shape)
+            .tvFocusBorder(shape = shape)
             .clickable(
                 enabled = item.enabled && item.onClick != null,
                 onClick = { item.onClick?.invoke() }

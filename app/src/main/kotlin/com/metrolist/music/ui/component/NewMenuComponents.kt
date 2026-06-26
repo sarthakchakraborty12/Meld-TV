@@ -39,6 +39,8 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.compose.ui.draw.clip
+import com.metrolist.music.ui.utils.tvFocusBorder
 
 // Enhanced Action Button - Material 3 Expressive Design
 @Composable
@@ -75,6 +77,8 @@ fun NewActionButton(
     Card(
         modifier =
             modifier
+                .clip(RoundedCornerShape(16.dp))
+                .tvFocusBorder(shape = RoundedCornerShape(16.dp))
                 .clickable(enabled = enabled) { performAction = true },
         colors =
             CardDefaults.cardColors(
@@ -132,6 +136,8 @@ fun NewMenuItem(
         supportingContent = supportingContent,
         modifier =
             modifier
+                .clip(RoundedCornerShape(8.dp))
+                .tvFocusBorder(shape = RoundedCornerShape(8.dp))
                 .clickable(enabled = enabled) { onClick?.invoke() }
                 .padding(horizontal = 4.dp),
         tonalElevation = 0.dp,
@@ -274,6 +280,8 @@ fun NewIconButton(
     Card(
         modifier =
             modifier
+                .clip(CircleShape)
+                .tvFocusBorder(shape = CircleShape)
                 .clickable(enabled = enabled) { onClick() },
         colors =
             CardDefaults.cardColors(

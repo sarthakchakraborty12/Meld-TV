@@ -23,6 +23,7 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.minimumInteractiveComponentSize
 import androidx.compose.material3.ripple
 import androidx.compose.runtime.Composable
+import com.metrolist.music.ui.utils.tvFocusBorder
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
@@ -49,6 +50,8 @@ fun ResizableIconButton(
         contentDescription = null,
         colorFilter = ColorFilter.tint(color),
         modifier = modifier
+            .clip(CircleShape)
+            .tvFocusBorder(shape = CircleShape)
             .clickable(
                 indication = indication ?: ripple(bounded = false),
                 interactionSource = remember { MutableInteractionSource() },
@@ -75,6 +78,7 @@ fun IconButton(
             .minimumInteractiveComponentSize()
             .sizeIn(minWidth = 48.dp, minHeight = 48.dp)
             .clip(CircleShape)
+            .tvFocusBorder(shape = CircleShape)
             .background(color = colors.containerColor)
             .combinedClickable(
                 onClick = onClick,

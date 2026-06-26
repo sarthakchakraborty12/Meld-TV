@@ -24,7 +24,10 @@ import androidx.compose.material3.ProvideTextStyle
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.unit.dp
+import com.metrolist.music.ui.utils.tvFocusBorder
 
 @Composable
 fun Material3MenuGroup(
@@ -52,7 +55,7 @@ fun Material3MenuGroup(
                 ),
                 elevation = CardDefaults.cardElevation(defaultElevation = 0.dp)
             ) {
-                Material3MenuItemRow(item = item)
+                Material3MenuItemRow(item = item, shape = shape)
             }
         }
     }
@@ -60,11 +63,14 @@ fun Material3MenuGroup(
 
 @Composable
 private fun Material3MenuItemRow(
-    item: Material3MenuItemData
+    item: Material3MenuItemData,
+    shape: Shape
 ) {
     Row(
         modifier = Modifier
             .fillMaxWidth()
+            .clip(shape)
+            .tvFocusBorder(shape = shape)
             .clickable(
                 enabled = item.onClick != null,
                 onClick = { item.onClick?.invoke() }

@@ -64,6 +64,9 @@ import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import com.metrolist.music.constants.AppBarHeight
 
+import androidx.compose.ui.focus.onFocusChanged
+import com.metrolist.music.ui.utils.tvFocusBorder
+
 @ExperimentalMaterial3Api
 @Composable
 fun TopSearch(
@@ -188,6 +191,9 @@ private fun SearchBarInputField(
             modifier = Modifier
                 .weight(1f)
                 .focusRequester(focusRequester)
+                .onFocusChanged { if (it.isFocused) onActiveChange(true) }
+                .tvFocusBorder()
+                .padding(8.dp)
                 .pointerInput(Unit) {
                     awaitEachGesture {
                         awaitFirstDown(pass = PointerEventPass.Initial)

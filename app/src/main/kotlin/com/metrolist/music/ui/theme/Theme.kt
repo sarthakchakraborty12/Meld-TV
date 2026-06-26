@@ -26,6 +26,8 @@ import com.materialkolor.dynamiccolor.ColorSpec
 import com.materialkolor.rememberDynamicColorScheme
 import com.materialkolor.score.Score
 
+import com.metrolist.music.ui.utils.isTv
+
 val DefaultThemeColor = Color(0xFFED5564)
 
 @Composable
@@ -62,12 +64,23 @@ fun MetrolistTheme(
         }
     }
 
-    // Use standard MaterialTheme instead of MaterialExpressiveTheme
-    MaterialTheme(
-        colorScheme = colorScheme,
-        typography = AppTypography, // Use the defined AppTypography
-        content = content
-    )
+    if (context.isTv()) {
+        val tvIndication = remember(colorScheme.primary) { TvFocusIndication(colorScheme.primary) }
+
+        androidx.compose.runtime.CompositionLocalProvider(androidx.compose.foundation.LocalIndication provides tvIndication) {
+            MaterialTheme(
+                colorScheme = colorScheme,
+                typography = AppTypography, // Use the defined AppTypography
+                content = content
+            )
+        }
+    } else {
+        MaterialTheme(
+            colorScheme = colorScheme,
+            typography = AppTypography, // Use the defined AppTypography
+            content = content
+        )
+    }
 }
 
 fun Bitmap.extractThemeColor(): Color {

@@ -114,6 +114,7 @@ import com.metrolist.music.extensions.toMediaItem
 import com.metrolist.music.models.MediaMetadata
 import com.metrolist.music.playback.queues.LocalAlbumRadio
 import com.metrolist.music.ui.utils.resize
+import com.metrolist.music.ui.utils.tvFocusBorder
 import com.metrolist.music.utils.joinByBullet
 import com.metrolist.music.utils.makeTimeString
 import com.metrolist.music.utils.rememberEnumPreference
@@ -149,7 +150,7 @@ inline fun ListItem(
 ) {
     Row(
         verticalAlignment = Alignment.CenterVertically,
-        modifier = if (isActive) {
+        modifier = (if (isActive) {
             modifier // playing highlight
                 .height(ListItemHeight)
                 .padding(horizontal = 8.dp)
@@ -169,7 +170,9 @@ inline fun ListItem(
             modifier // default
                 .height(ListItemHeight)
                 .padding(horizontal = 8.dp)
-        }
+                .clip(RoundedCornerShape(8.dp))
+        })
+        .tvFocusBorder(shape = RoundedCornerShape(8.dp))
     ) {
         Box(
             modifier = Modifier.padding(6.dp),
@@ -298,7 +301,7 @@ fun GridItem(
 ) {
     val gridHeight = currentGridThumbnailHeight()
     Column(
-        modifier = if (fillMaxWidth) {
+        modifier = (if (fillMaxWidth) {
             modifier
                 .padding(12.dp)
                 .fillMaxWidth()
@@ -306,7 +309,9 @@ fun GridItem(
             modifier
                 .padding(12.dp)
                 .width(gridHeight * thumbnailRatio)
-        }
+        })
+        .clip(RoundedCornerShape(12.dp))
+        .tvFocusBorder(shape = RoundedCornerShape(12.dp))
     ) {
         BoxWithConstraints(
             contentAlignment = Alignment.Center,
