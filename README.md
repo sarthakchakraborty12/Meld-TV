@@ -1,6 +1,6 @@
 <div align="center">
-<img src="fastlane/metadata/android/en-US/images/icon.png" width="160" height="160" style="display: block; margin: 0 auto"/>
-<h1>Meld</h1>
+<img src="https://github.com/user-attachments/assets/6cde92a9-e05e-4e6f-9798-2a69dd5fe436" height="240" style="display: block; margin: 0 auto"/>
+<h1>Meld TV (For Android TV/ Google TV)</h1>
 <p>A music client that fuses Spotify and YouTube Music into one seamless experience</p>
 
 [![Latest release](https://img.shields.io/github/v/release/FrancescoGrazioso/Meld?style=for-the-badge)](https://github.com/FrancescoGrazioso/Meld/releases/latest)
